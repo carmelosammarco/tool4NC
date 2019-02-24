@@ -1,4 +1,4 @@
-# tool4netcdf Package
+# tool4nc Package
 
 Functions available:
 
