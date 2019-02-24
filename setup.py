@@ -11,6 +11,7 @@ setup(name='tool4nc',
       author='Carmelo Sammarco',
       author_email='sammarcocarmelo@gmail.com',
       license='MIT',
+      python_requires='~=3.6',
       install_requires=[
         'numpy>=1.15.4', 
         'pandas>=0.23.4', 
@@ -20,5 +21,11 @@ setup(name='tool4nc',
         'fiona>=1.8.4', 
         'cdo>=1.4.0' ],
       packages=find_packages(),
-      
+      classifiers=[
+        'Development Status :: 3 - Alpha',
+        'Intended Audience :: Science/Research',
+        'Topic :: Scientific/Engineering',
+        'Programming Language :: Python :: 3.6',
+       ], 
+
 )
