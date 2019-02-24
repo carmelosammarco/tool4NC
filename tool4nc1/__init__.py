@@ -1,0 +1,168 @@
+import numpy  as np
+import pandas as pd
+import xarray as xr
+import os
+import csv342 as csv 
+from shapely.geometry import Point, mapping
+from fiona import collection
+import cdo
+import sys
+
+#########################################################################
+
+def nctocsv(filein,out):
+    ''' This fuction convert a netCDF file to a csv file. It will generate
+        two csv files called file.csv and file_cleaned.csv respectively.
+        The file_cleaned.csv is cleaned by all the NAN values and it is
+        considered the final output file of this fuction.
+
+        -USE:
+
+        nctocsv("path_file_input", "path_output_folder")
+        '''
+    ds = xr.open_dataset(filein, decode_times=False)
+    df = ds.to_dataframe()
+    df.to_csv(out + "/file.csv")
+    data = pd.read_csv(out + "/file.csv")
+    data.dropna().to_csv(out + "/file_cleaned.csv", index = False)
+
+#############################################################################
+
+
+def nctoshape(filein,out,variable):
+    ''' This fuction convert a netCDF file to a shape file. Firsly It will generate
+        two csv files called file.csv and file_cleaned.csv respectively. After that
+        the file_cleaned.csv ( purified by all the NAN values) is used to extract
+        the corresponding shapefile rappresenting a variable's values which is the
+        third argument of this fuction.
+
+        -USE:
+
+        nctoshape("path_file_input", "path_output_folder", "variable")
+        '''
+    ds = xr.open_dataset(filein, decode_times=False)
+    df = ds.to_dataframe()
+    df.to_csv(out + "/file.csv")
+    data = pd.read_csv(out +"/file.csv")
+    data.dropna().to_csv(out + "/file_cleaned.csv", index = False)
+
+    filecsv = open(out + "/file_cleaned.csv")
+    listed=[]
+    line = filecsv.readline()
+    for u in line.split(','):
+        listed.append(u)
+    
+    if 'lat' in listed:
+        schema = { 'geometry': 'Point', 'properties': { variable : 'float' } }
+        with collection(out +"/file.shp", "w", "ESRI Shapefile", schema) as output:
+            with open(out + "/file_cleaned.csv", 'r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    point = Point(float(row['lon']), float(row['lat']))
+                    output.write({
+                          'properties': {
+                              variable: row[ variable ]
+                          },
+                          'geometry': mapping(point)
+                    })
+                
+    elif 'Lat' in listed:
+        schema = { 'geometry': 'Point', 'properties': { variable : 'float' } }
+        with collection(out +"/file.shp", "w", "ESRI Shapefile", schema) as output:
+            with open(out + "/file_cleaned.csv", 'r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    point = Point(float(row['Lon']), float(row['Lat']))
+                    output.write({
+                          'properties': {
+                              variable: row[ variable ]
+                          },
+                          'geometry': mapping(point)
+                    })
+                
+    elif 'Latitude' in listed:
+        schema = { 'geometry': 'Point', 'properties': { variable : 'float' } }
+        with collection(out +"/file.shp", "w", "ESRI Shapefile", schema) as output:
+            with open(out + "/file_cleaned.csv", 'r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    point = Point(float(row['Longitude']), float(row['Latitude']))
+                    output.write({
+                        'properties': {
+                            variable : row[ variable ]
+                        },
+                        'geometry': mapping(point)
+                    })
+                
+    elif 'latitude' in listed:
+        schema = { 'geometry': 'Point', 'properties': { variable : 'float' } }
+        with collection(out +"/file.shp", "w", "ESRI Shapefile", schema) as output:
+            with open(out + "/file_cleaned.csv", 'r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    point = Point(float(row['longitude']), float(row['latitude']))
+                    output.write({
+                        'properties': {
+                            variable : row[ variable ]
+                        },
+                        'geometry': mapping(point)
+                    })
+                
+    else:
+        messagebox.showinfo('Warning', 'Need to be added a new text format. Please contact Carmelo!')
+        print("Need to be added a new text format. Please contact Carmelo!")
+    
+
+#######################################################################################
+
+
+def concatnc(folderimput):
+    ''' This fuction is able to concatenate segments of data coming from the same dataset 
+        but at different time steps. It will generate a file called "concatenated.nc" as 
+        final result. The only atgument needed is the folder where the files are located.
+
+        -USE:
+
+        concatenate("path_folder_input")
+     '''
+    command = "cdo mergetime  " + folderimput +"/*.nc  " +  folderimput + "/Concatenated.nc"
+    print(command)
+    os.system(command)
+
+###########################################################################################
+
+def splitnc(filein,out,types,suffix):
+    '''This fuction is able to split the data by day(DD), months(YYYYMM) and years(YYYY).It 
+       gives the option to add a suffix to the so generated data.
+
+       -USE
+
+        splitnc("path_file_input", "path_output_folder", "Types"[DAY,MONTH or YEAR], Suffix")
+    '''
+
+    if types == "DAY":
+        command = "cdo splitday" +"  " + filein + "  " + out +"/"+ suffix
+        print(command)
+        os.system(command)
+
+    elif types == "MONTH":
+        command = "cdo splityearmon" +"  " + filein + "  " + out +"/"+ suffix
+        print(command)
+        os.system(command)
+
+    elif types == "YEAR":
+        command = "cdo splityear" +"  " + filein + "  " + out +"/"+ suffix
+        print(command)
+        os.system(command)
+    
+    else:
+        print("Please to insert DAY, MONTH or YEAR option")
+
+
+###########################################################################################
+
+
+
+
+
+
