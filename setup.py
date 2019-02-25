@@ -10,7 +10,7 @@ setup(name='tool4nc',
       url="https://github.com/carmelosammarco/tool4nc",
       author='Carmelo Sammarco',
       author_email='sammarcocarmelo@gmail.com',
-      license='MIT',
+      license='gpl-3.0',
       python_requires='~=3.6',
       install_requires=[
         'numpy>=1.15.4', 
