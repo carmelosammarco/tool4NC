@@ -6,18 +6,26 @@ Python module (in Development) containing functions for simplifing the netCDF fi
 
 In the setup.py it is possible have a look to all the dependencies required and they are listed below:
 
-- [x] 'basemap',
-- [x] 'netCDF4>=1.4.2',
-- [x] 'csv342>=1.0.0', 
-- [x] 'pandas>=0.23.4', 
-- [x] 'xarray>=0.11.0', 
-- [x] 'csv342>=1.0.0', 
-- [x] 'shapely>=1.6.4.post2', 
-- [x] 'fiona>=1.8.4', 
-- [x] 'cdo>=1.4.0',
-- [x] 'moviepy>=0.2.3.5',
-- [x] 'matplotlib>=3.0.2',
-- [x] 'numpy>=1.15.4'
+[x] 'netCDF4>=1.4.2',
+[x] 'csv342>=1.0.0', 
+[x] 'pandas>=0.23.4', 
+[x] 'xarray>=0.11.0', 
+[x] 'csv342>=1.0.0', 
+[x] 'shapely>=1.6.4.post2', 
+[x] 'fiona>=1.8.4', 
+[x] 'cdo>=1.4.0',
+[x] 'moviepy>=0.2.3.5',
+[x] 'matplotlib>=3.0.2',
+[x] 'numpy>=1.15.4'
+
+## Be aware that:
+
+The tool is in development so it can be possible find bugs, errors and imprecisions. Please to report them if you find one. In the speciphic the major improvment need to be done with:
+
+### - The plotintime fuction: 
+
+It works just in particular conditions in which "lat" and "lon" are the metadata name attributes for both latitude and longitude and the input file has just one depth record. In the next future i will try to let it works for ather latitude/longitude metadata record names. As long term project the aim is to use bot data single depth and multi-depths. For the latter I would like let the user decide in which  depth focus on and also be able to display variation in fuction of depth. It requires the installation of basemap which you can find [here](https://github.com/matplotlib/basemap)
+
     
 ## Installation:
 
@@ -57,7 +65,6 @@ For python standard distribution users. The command needs to be run inside the p
 
 ## Functions included:
 
-
 ### nctocsv ("path_input file", "path_output folder")
 
 This function converts a netCDF file to a csv file. It will generate two csv files called file.csv and file_cleaned.csv respectively. The file_cleaned.csv is cleaned by all the NAN values and it is considered the final output file of this function.
@@ -82,15 +89,6 @@ This function can split the data by type; DAY (DD), MONTH (YYYYMM) and YEAR (YYY
 
 This fuction is able to generate a dynamic plot showing the variation of the selected variable in fuction of the time steps recorded into. 
 
-
-
-## Be aware that:
-
-The tool is in development so it can be possible find bugs, errors and imprecisions. Please to report them if you find one. In the speciphic the major improvment need to be done with:
-
-### - The plotintime fuction: 
-
-It works just in particular conditions in which "lat" and "lon" are the metadata name attributes for both latitude and longitude and the input file has just one depth record. In the next future i will try to let it works for ather latitude/longitude metadata record names. As long term project the aim is to use bot data single depth and multi-depths. For the latter I would like let the user decide in which  depth focus on and also be able to display variation in fuction of depth. 
 
 ## Case examples:
 
@@ -130,16 +128,16 @@ for filename in os.listdir(Input_DIR):
 
 
 ```
-from tool4nc import concatnc,plotintime
+from tool4nc import concatnc, plotintime
 
 Input_DIR = 'the/directory/where/you/store/the/daily/file'
 Out_DIR = 'the/directory/you/want/to/output/the/results'
 Variable_name = "name-variable-to-investigate"
-frame_for_second = 9  #number expressing the velocity of the animation or number di frame for each second
+frame_for_second = 9  
 
 concatnc (Input_DIR) #it will generate the concatenated.nc file
 
-plotintime ("path_to/concatenated.nc",Variable_name,Out_DIR,frame_for_second) #This function produces both an animated .gif and an .mp4 video
+plotintime ("path_to/concatenated.nc", Variable_name, Out_DIR, frame_for_second) #This function produces both an animated .gif and an .mp4 video
 
 ```
 

@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(name='tool4nc',
-      version='0.1.3',
+      version='0.1.4',
       description='Software for the netCDF files manipulations',
       long_description=long_description,
       long_description_content_type='text/markdown',
@@ -20,7 +20,6 @@ setup(name='tool4nc',
       ],
 
       install_requires=[
-        'basemap',
         'netCDF4>=1.4.2',
         'csv342>=1.0.0', 
         'pandas>=0.23.4', 
