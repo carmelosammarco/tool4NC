@@ -1,4 +1,3 @@
-import numpy  as np
 import pandas as pd
 import xarray as xr
 import os
@@ -7,16 +6,6 @@ from shapely.geometry import Point, mapping
 from fiona import collection
 import cdo
 import sys
-
-import moviepy.editor as mpy
-import glob
-import matplotlib as mpl
-from mpl_toolkits.basemap import Basemap
-from matplotlib.dates import date2num, num2date
-from matplotlib import cm
-import matplotlib.pyplot as plt
-import matplotlib.animation as animation
-import numpy as np
 
 #########################################################################
 
@@ -184,88 +173,3 @@ def splitnc(filein,out,types,suffix):
 
 
 ###########################################################################################
-
-def plotintime(filein,var,out,fps):
-    '''This fuction is able to generate a dynamic plot showing the variation of the selected 
-       variable in fuction of the time steps recorded into. 
-
-       -USE
-
-        plotintime ("path_input file","variable_name","path_output folder",frame_for_second)
-    '''
-
-    with xr.open_dataset(filein) as ds:
-       #print(title)
-        minvar = eval("ds."+var+".min()")
-        maxvar = eval("ds."+var+".max()")
-        print (minvar)
-        print (maxvar)
-
-        for t in range(ds.time.shape[0]):
-
-            da = eval("ds."+var+".isel(time=t)")
-    
-            num = date2num(ds.time[t])
-            date = num2date(num)
-
-            title = ds.title+"-"+str(date)
-            
-            plt.figure(figsize=(10,5))
-            
-            lat  = ds.variables['lat'][:]
-            lon  = ds.variables['lon'][:]
-            
-            plt.title(title, fontsize=10)
-            #plt.xlabel("Longitude", fontsize=30)
-            #plt.ylabel("Latitude", fontsize=30)
-            
-            m=Basemap(projection='mill',lat_ts=10,llcrnrlon=lon.min(), \
-            urcrnrlon=lon.max(),llcrnrlat=lat.min(),urcrnrlat=lat.max(), \
-            resolution='l')
-            
-            m.drawcoastlines()
-            m.fillcontinents()
-            m.drawmapboundary()
-            
-            m.drawparallels(np.arange(-80., 81., 10.), labels=[1,0,0,0], fontsize=10)
-            m.drawmeridians(np.arange(-180., 181., 10.), labels=[0,0,0,1], fontsize=10)
-
-            x, y = m(*np.meshgrid(lon,lat))
-
-            col = m.pcolormesh(x,y,da,shading='flat',cmap=cm.get_cmap("jet"), vmin=minvar, vmax=maxvar)
-        
-            cbar = plt.colorbar(col)
-            
-            cbar.ax.yaxis.set_ticks_position('left')
-            for I in cbar.ax.yaxis.get_ticklabels():
-                I.set_size(10)
-            
-            cbar.set_label(var, size = 10)
-            
-            plt.savefig(out + '/frame{}.png'.format(t), dpi=300)    
-        
-        a = int(fps)
-
-        gif_name = "PlotinTime" + "_" + var 
-
-        file_list = glob.glob(out +'/*.png') # Get all the pngs in the current directory
-        file_list.sort(key=os.path.getmtime) # Sort the images by time, this may need to be tweaked for your use case
-
-        clip = mpy.ImageSequenceClip(file_list, fps=a)
-        clip.write_gif('{}.gif'.format(gif_name), fps=a)
-
-        clip2 = mpy.VideoFileClip("PlotinTime" + "_" + var + ".gif")
-        clip2.write_videofile("PlotinTime" + "_" + var +  ".mp4")
-
-        path = str(out+"/")
-        folder = os.listdir(path)
-        for item in folder:
-            if item.endswith(".png"):
-                os.remove(os.path.join(path, item))
-
-###########################################################################################
-
-
-
-
-

@@ -6,27 +6,19 @@ Python module (in Development) containing functions for simplifing the netCDF fi
 
 In the setup.py it is possible have a look to all the dependencies required and they are listed below:
 
-[x] 'netCDF4>=1.4.2',
-[x] 'csv342>=1.0.0', 
-[x] 'pandas>=0.23.4', 
-[x] 'xarray>=0.11.0', 
-[x] 'csv342>=1.0.0', 
-[x] 'shapely>=1.6.4.post2', 
-[x] 'fiona>=1.8.4', 
-[x] 'cdo>=1.4.0',
-[x] 'moviepy>=0.2.3.5',
-[x] 'matplotlib>=3.0.2',
-[x] 'numpy>=1.15.4'
+[x] netCDF4>=1.4.2
+[x] csv342>=1.0.0 
+[x] pandas>=0.23.4 
+[x] xarray>=0.11.0 
+[x] csv342>=1.0.0
+[x] shapely>=1.6.4.post2
+[x] fiona>=1.8.4
+[x] cdo>=1.4.0
 
 ## Be aware that:
 
 The tool is in development so it can be possible find bugs, errors and imprecisions. Please to report them if you find one. In the speciphic the major improvment need to be done with:
-
-### - The plotintime fuction: 
-
-It works just in particular conditions in which "lat" and "lon" are the metadata name attributes for both latitude and longitude and the input file has just one depth record. In the next future i will try to let it works for ather latitude/longitude metadata record names. As long term project the aim is to use bot data single depth and multi-depths. For the latter I would like let the user decide in which  depth focus on and also be able to display variation in fuction of depth. It requires the installation of basemap which you can find [here](https://github.com/matplotlib/basemap)
-
-    
+   
 ## Installation:
 
 To use this software is suggested the creation of a python environment (python ~=3.6). It becames mandatory if your python version is part of the 2.* family. Following few basic instructions if interesed to install the module in a new ad-hoc environment.
