@@ -124,8 +124,6 @@ def nctogdr(filein,out):
     print(command)
     os.system(command)
 
-
-
 ########################################################################################
 
 
@@ -170,6 +168,5 @@ def splitnc(filein,out,types,suffix):
     
     else:
         print("Please to insert DAY, MONTH or YEAR option")
-
 
 ###########################################################################################

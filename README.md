@@ -1,27 +1,30 @@
-# tool4nc 
+# tool4nc
 
-Python module (in Development) containing functions for simplifing the netCDF files manipulations/visualization.
+Python module containing functions for simplifing the netCDF files manipulations.
+
 
 ## Dependencies:
 
 In the setup.py it is possible have a look to all the dependencies required and they are listed below:
 
-[x] netCDF4>=1.4.2
-[x] csv342>=1.0.0 
-[x] pandas>=0.23.4 
-[x] xarray>=0.11.0 
-[x] csv342>=1.0.0
-[x] shapely>=1.6.4.post2
-[x] fiona>=1.8.4
-[x] cdo>=1.4.0
+- [x] netCDF4>=1.4.2
+- [x] csv342>=1.0.0 
+- [x] pandas>=0.23.4 
+- [x] xarray>=0.11.0 
+- [x] csv342>=1.0.0
+- [x] shapely>=1.6.4.post2
+- [x] fiona>=1.8.4
+- [x] cdo>=1.4.0
 
 ## Be aware that:
 
-The tool is in development so it can be possible find bugs, errors and imprecisions. Please to report them if you find one. In the speciphic the major improvment need to be done with:
+The tool is in development so it can be possible find bugs, errors and imprecisions. Please to report them if you find one. 
+
    
 ## Installation:
 
-To use this software is suggested the creation of a python environment (python ~=3.6). It becames mandatory if your python version is part of the 2.* family. Following few basic instructions if interesed to install the module in a new ad-hoc environment.
+To use this software is suggested the creation of a python environment (python ~=3.6). It becames mandatory if your python version is part of the 2.* family. Following few basic instructions (if interesed) to install the module in a new ad-hoc environment.
+
 
 ### Procedure for the Anaconda python distribution:
 
@@ -34,6 +37,7 @@ To use this software is suggested the creation of a python environment (python ~
 - conda activate {your_env_name} (Activate the chosen environment)
 
 - conda activate (Come back to the initial environment)
+
 
 ### Procedure for the standard python distribution:
 
@@ -57,6 +61,7 @@ For python standard distribution users. The command needs to be run inside the p
 
 ## Functions included:
 
+
 ### nctocsv ("path_input file", "path_output folder")
 
 This function converts a netCDF file to a csv file. It will generate two csv files called file.csv and file_cleaned.csv respectively. The file_cleaned.csv is cleaned by all the NAN values and it is considered the final output file of this function.
@@ -74,12 +79,7 @@ This function can concatenate segments of data coming from the same dataset but 
 
 ### splitnc ("path_input file",  "path_output folder", "type", "suffix")
 
-This function can split the data by type; DAY (DD), MONTH (YYYYMM) and YEAR (YYYY). It gives the option to add a suffix to the generated data.
-
-
-### plotintime ("path_input file","variable_name","path_output folder",frame_for_second)
-
-This fuction is able to generate a dynamic plot showing the variation of the selected variable in fuction of the time steps recorded into. 
+This function can split the data by type; DAY (DD), MONTH (YYYYMM) and YEAR (YYYY). It gives the option to add a suffix to the generated data. 
 
 
 ## Case examples:
@@ -116,20 +116,14 @@ for filename in os.listdir(Input_DIR):
 
 ```
 
-### I have a folder with a month of data divided in daily files. These files are downloaded from the same dataset (which contains just one depth information). I would like to concatenate all the daily files in a montly one. I also would like realise an animated plot showing the variation of a variable in fuction of the time:
-
+### I have a folder with a month of data divided in daily files. These files are downloaded from the same dataset and I would like to concatenate all the daily files in a montly one:
 
 ```
 from tool4nc import concatnc, plotintime
 
 Input_DIR = 'the/directory/where/you/store/the/daily/file'
-Out_DIR = 'the/directory/you/want/to/output/the/results'
-Variable_name = "name-variable-to-investigate"
-frame_for_second = 9  
 
 concatnc (Input_DIR) #it will generate the concatenated.nc file
-
-plotintime ("path_to/concatenated.nc", Variable_name, Out_DIR, frame_for_second) #This function produces both an animated .gif and an .mp4 video
 
 ```
 
