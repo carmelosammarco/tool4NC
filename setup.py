@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(name='tool4nc',
-      version='0.1.7',
+      version='0.1.8',
       description='Software for the netCDF files manipulations',
       long_description=long_description,
       long_description_content_type='text/markdown',
@@ -18,8 +18,7 @@ setup(name='tool4nc',
         'netCDF4>=1.4.2',
         'csv342>=1.0.0', 
         'pandas>=0.23.4', 
-        'xarray>=0.11.0', 
-        'csv342>=1.0.0', 
+        'xarray>=0.11.0',  
         'shapely>=1.6.4.post2', 
         'fiona>=1.8.4', 
         'cdo>=1.4.0'

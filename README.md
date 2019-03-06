@@ -11,7 +11,6 @@ In the setup.py it is possible have a look to all the dependencies required and 
 - [x] csv342>=1.0.0 
 - [x] pandas>=0.23.4 
 - [x] xarray>=0.11.0 
-- [x] csv342>=1.0.0
 - [x] shapely>=1.6.4.post2
 - [x] fiona>=1.8.4
 - [x] cdo>=1.4.0
@@ -23,7 +22,7 @@ The tool is in development so it can be possible find bugs, errors and imprecisi
    
 ## Installation:
 
-To use this software is suggested the creation of a python environment (python ~=3.6). It becames mandatory if your python version is part of the 2.* family. Following few basic instructions (if interesed) to install the module in a new ad-hoc environment.
+To use this software is suggested the creation of a python environment (python ~=3.6). It becames mandatory if your python version is part of the 2.* family. Following few basic instructions to install the module in a new ad-hoc environment.
 
 
 ### Procedure for the Anaconda python distribution:
