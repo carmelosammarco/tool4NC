@@ -5,7 +5,7 @@ Python module containing functions for simplifing the netCDF files manipulations
 
 ## Dependencies:
 
-In the setup.py it is possible have a look to all the dependencies required and they are listed below:
+The dependencies required are listed below:
 
 - [x] netCDF4>=1.4.2
 - [x] csv342>=1.0.0 
@@ -24,7 +24,6 @@ The tool is in development so it can be possible find bugs, errors and imprecisi
 
 To use this software is suggested the creation of a python environment (python ~=3.6). It becames mandatory if your python version is part of the 2.* family. Following few basic instructions to install the module in a new ad-hoc environment.
 
-
 ### Procedure for the Anaconda python distribution:
 
 - conda update conda (To update the Anaconda distribution)
@@ -37,7 +36,6 @@ To use this software is suggested the creation of a python environment (python ~
 
 - conda activate (Come back to the initial environment)
 
-
 ### Procedure for the standard python distribution:
 
 - pip install pipenv (installation of the package needed)
@@ -46,20 +44,18 @@ To use this software is suggested the creation of a python environment (python ~
 
 - pipenv pipenv --python 3.6 (Install the python environment inside the project folder)
 
+## tool4nc installation:
 
-### tool4nc installation using:
+The Anaconda/standard users need to run in terminal:
 
-- pip install tool4nc: 
+- pip install tool4nc
 
-For Anaconda users and the command can be executed from every path locations. 
- 
-- pipenv install tool4nc:
+The users with a pipenv environment need to run in the terminal and inside the project folder:
 
-For python standard distribution users. The command needs to be run inside the project folder.
+ - pipenv install tool4nc
 
 
 ## Functions included:
-
 
 ### nctocsv ("path_input file", "path_output folder")
 
@@ -70,10 +66,14 @@ This function converts a netCDF file to a csv file. It will generate two csv fil
 
 This function converts a netCDF file into a shape file (Point features). Firstly, it will generate two csv files called file.csv and file_cleaned.csv respectively. After that, the file_cleaned.csv (purified by all the NAN values) is used to extract the corresponding shapefile representing a variable’s values which is the third argument of this function.
 
+### nctogdr ("path_input file", "path_output folder")
+
+This fuction convert a netCDF file to a GRD file which is required for some computations.
+
 
 ### concatnc ("path_input folder")
 
-This function can concatenate segments of data coming from the same dataset but at different time steps. It will generate a file called “concatenated.nc” as result. The only argument needed is the folder where the files are located.
+This function is qble to concatenate segments of data coming from the same dataset but at different time steps. It will generate a file called concatenated.nc as final result. The only argument needed is the folder where the files are located.
 
 
 ### splitnc ("path_input file",  "path_output folder", "type", "suffix")
@@ -81,10 +81,9 @@ This function can concatenate segments of data coming from the same dataset but 
 This function can split the data by type; DAY (DD), MONTH (YYYYMM) and YEAR (YYYY). It gives the option to add a suffix to the generated data. 
 
 
-## Case examples:
+# Case examples:
 
-
-### I have many netCDF files and I would like to convert all of them in CSV: 
+## I have many netCDF files and I would like to convert all of them in CSV: 
 
 ```
 import os
@@ -99,7 +98,7 @@ for filename in os.listdir(Input_DIR):
 
 ```
 
-### I want to overlay in my GIS project (as shape-file) data from a variable which is contained in my netCDF file:
+## I want to overlay in my GIS project (as shape-file) data from a variable which is contained in my netCDF file:
 
 ```
 import os
@@ -115,7 +114,7 @@ for filename in os.listdir(Input_DIR):
 
 ```
 
-### I have a folder with a month of data divided in daily files. These files are downloaded from the same dataset and I would like to concatenate all the daily files in a montly one:
+## I have a folder with a month of data divided in daily files. These files are downloaded from the same dataset and I would like to concatenate all the daily files in a montly one:
 
 ```
 from tool4nc import concatnc, plotintime
@@ -126,7 +125,22 @@ concatnc (Input_DIR) #it will generate the concatenated.nc file
 
 ```
 
-### I have one year file but i realised that it is better have the data organised by Month. Furthermore, I would like also add a suffix to each file:
+## I have many netCDF files and I would like to convert all of them in GRD: 
+
+```
+import os
+from tool4nc import nctogrd
+
+Input_DIR = 'the/directory/you/want/to/use'
+Out_DIR = 'the/directory/you/want/to/use'
+
+for filename in os.listdir(Input_DIR):
+    if filename.endswith(".nc"):
+       nctogdr (filename, Out_DIR)
+
+```
+
+## I have one year file but i realised that it is better have the data organised by Month. Furthermore, I would like also add a suffix to each file:
 
 ```
 from tool4nc import slitnc
