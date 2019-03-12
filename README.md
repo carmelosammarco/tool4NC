@@ -1,7 +1,6 @@
 # tool4nc
 
-Python module containing functions for simplifing the netCDF files manipulations.
-
+Python module containing functions for simplifing the netCDF files manipulations. It is designed to work in Unix operative systems. if you wish use this module in a Windows operative environment please to refer to [tool4nc-win](https://pypi.org/project/tool4nc-win/).
 
 ## Dependencies:
 
@@ -15,47 +14,22 @@ The dependencies required are listed below:
 - [x] fiona>=1.8.4
 - [x] cdo>=1.4.0
 
+
 ## Be aware that:
 
-The tool is in development so it can be possible find bugs, errors and imprecisions. Please to report them if you find one. 
+The tool is in development so it can be possible find bugs, errors and imprecisions. Please to report them if you find one.
+ 
 
-   
 ## Installation:
 
-To use this software is suggested the creation of a python environment (python ~=3.6). It becames mandatory if your python version is part of the 2.* family. Following few basic instructions to install the module in a new ad-hoc environment.
+To use this module is suggested python ~=3.6. Following the command to install the module:
 
-### Procedure for the Anaconda python distribution:
-
-- conda update conda (To update the Anaconda distribution)
-
-- conda create -n {your_env_name} python=3.6 (For the creation of a python environment)
-
-- conda list (List all the environments installed)
-
-- conda activate {your_env_name} (Activate the chosen environment)
-
-- conda activate (Come back to the initial environment)
-
-### Procedure for the standard python distribution:
-
-- pip install pipenv (installation of the package needed)
-
-- create project folder 
-
-- pipenv pipenv --python 3.6 (Install the python environment inside the project folder)
-
-## tool4nc installation:
-
-The Anaconda/standard users need to run in terminal:
-
-- pip install tool4nc
-
-The users with a pipenv environment need to run in the terminal and inside the project folder:
-
- - pipenv install tool4nc
-
+```
+pip install tool4nc
+```
 
 ## Functions included:
+
 
 ### nctocsv ("path_input file", "path_output folder")
 
@@ -95,7 +69,6 @@ Out_DIR = 'the/directory/you/want/to/use'
 for filename in os.listdir(Input_DIR):
     if filename.endswith(".nc"):
        nctocsv (filename, Out_DIR)
-
 ```
 
 ## I want to overlay in my GIS project (as shape-file) data from a variable which is contained in my netCDF file:
@@ -111,7 +84,6 @@ Variable = ‘Variable name’
 for filename in os.listdir(Input_DIR):
     if filename.endswith(".nc"):
        nctoshape (filename, Out_DIR, Variable)
-
 ```
 
 ## I have a folder with a month of data divided in daily files. These files are downloaded from the same dataset and I would like to concatenate all the daily files in a montly one:
@@ -122,7 +94,6 @@ from tool4nc import concatnc, plotintime
 Input_DIR = 'the/directory/where/you/store/the/daily/file'
 
 concatnc (Input_DIR) #it will generate the concatenated.nc file
-
 ```
 
 ## I have many netCDF files and I would like to convert all of them in GRD: 
@@ -137,7 +108,6 @@ Out_DIR = 'the/directory/you/want/to/use'
 for filename in os.listdir(Input_DIR):
     if filename.endswith(".nc"):
        nctogdr (filename, Out_DIR)
-
 ```
 
 ## I have one year file but i realised that it is better have the data organised by Month. Furthermore, I would like also add a suffix to each file:
@@ -152,7 +122,6 @@ suffix = "text/to/append/at/each/file"
 
 
 splitnc (Input_file, Out_DIR, type, suffix)
-
 ```
 
 
