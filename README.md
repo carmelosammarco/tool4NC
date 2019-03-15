@@ -100,7 +100,7 @@ This fuction convert a netCDF file to a GRD file which is required for some comp
 
 ### concatnc ("path_input folder")
 
-This function is qble to concatenate segments of data coming from the same dataset but at different time steps. It will generate a file called concatenated.nc as final result. The only argument needed is the folder where the files are located.
+This function is qble to concatenate segments of data coming from the same dataset but at different time steps. It will generate a file called "concatenated.nc" as final result. The only argument needed is the folder where the files are located.
 
 
 ### splitnc ("path_input file",  "path_output folder", "type", "suffix")
