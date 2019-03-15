@@ -14,8 +14,8 @@ The dependencies required are listed below:
 - [x] csv342>=1.0.0 
 - [x] pandas>=0.23.4 
 - [x] xarray>=0.11.0 
-- [x] shapely*
-- [x] fiona*
+- [x] Shapely==1.6.4.post1*
+- [x] Fiona==1.8.4*
 - [x] cdo>=1.4.0
 
 ## Installation:
