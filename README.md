@@ -14,16 +14,28 @@ The dependencies required are listed below:
 - [x] csv342>=1.0.0 
 - [x] pandas>=0.23.4 
 - [x] xarray>=0.11.0 
-- [x] Shapely==1.6.4.post1*
-- [x] Fiona==1.8.4*
+- [x] Shapely>=1.6.4.post1*
+- [x] Fiona>=1.8.4*
 - [x] cdo>=1.4.0
 
 ## Installation:
 
-To use this module is suggested python ~=3.6. Following the command to install the module:
+As fist thing please consider to install [Anaconda](https://www.anaconda.com) 3.* version (to use this software is suggested python ~=3.6). For Windows OS it will be a stardard executable (.exe) while the Unix user will download a .sh file that need to be executed in the terminal using the following command:
 
 ```
-pip install tool4nc
+bash file_installation_Anaconda_downloaded.sh
+```
+
+ Furthermore an update of pip, setuptools and wheels is suggested using the following command:
+
+```
+python -m pip install --upgrade pip setuptools wheel
+```
+
+After that run the software installation with:
+
+```
+pip install MerOC
 ```
 
 ### * For Windows users only:
