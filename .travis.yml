@@ -18,5 +18,5 @@ install:
 
 # Run test
 script:
-  - python Test/test.py
+  - python Test.py
   
