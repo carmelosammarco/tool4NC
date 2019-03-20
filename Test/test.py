@@ -9,7 +9,7 @@ Output_folder = Path("Test/OUT")
 test_folder_pathwindow = PureWindowsPath(test_folder)
 OUT_pathwindow = PureWindowsPath(Output_folder)
 
-file_to_use = test_folder / "VHM0.nc"
+file_to_use = test_folder + "/VHM0.nc"
 Variable = "VHM0"
 
 nctocsv(file_to_use, Output_folder)

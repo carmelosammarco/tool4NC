@@ -1,5 +1,7 @@
 # tool4nc
 
+[![Build Status](https://travis-ci.com/carmelosammarco/tool4nc.png)](https://travis-ci.com/carmelosammarco/tool4nc)
+
 Python module containing functions for simplifing the netCDF files manipulations.
 
 ## Be aware that:
