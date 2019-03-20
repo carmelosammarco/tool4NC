@@ -5,7 +5,7 @@ import glob
 test_folder = "Test/"
 Output_folder = "Test/OUT"
 
-file_to_use = "Test/VHM0.nc"
+file_to_use = "VHM0.nc"
 Variable = "VHM0"
 
 nctocsv(file_to_use, Output_folder)
