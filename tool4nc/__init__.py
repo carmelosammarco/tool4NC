@@ -11,19 +11,19 @@ import sys
 
 def nctocsv(filein,out):
     ''' This fuction convert a netCDF file to a csv file. It will generate
-        two csv files called file.csv and file_cleaned.csv respectively.
+        two csv files called file.csv and file_NANcleaned.csv respectively.
         The file_cleaned.csv is cleaned by all the NAN values and it is
         considered the final output file of this fuction.
 
         -USE:
 
-        nctocsv("path_file_input", "path_output_folder")
+        nctocsv("file_input", "path_output_folder")
         '''
     ds = xr.open_dataset(filein, decode_times=False)
     df = ds.to_dataframe()
     df.to_csv(out + "/data.csv")
     data = pd.read_csv(out + "/" + filein + ".csv")
-    data.dropna().to_csv(out + "/" + filein + "_noNAN.csv", index = False)
+    data.dropna().to_csv(out + "/" + filein + "_NANcleaned.csv", index = False)
     #data = pd.read_csv(out + "/data.csv")
     #data.dropna().to_csv(out + "/data_noNAN.csv", index = False)
 #############################################################################
@@ -119,7 +119,7 @@ def nctogdr(filein,out):
 
         -USE:
 
-        nctogdr("path_file_input", "path_output_folder")
+        nctogdr("file_input", "path_output_folder")
     '''
     command = "cdo  -f grb copy  " + filein  + "   " + out + "/" + filein + ".grb"
     print(command)
@@ -149,7 +149,7 @@ def splitnc(filein,out,types,suffix):
 
        -USE
 
-        splitnc("path_file_input", "path_output_folder", "Types"[DAY,MONTH or YEAR], Suffix")
+        splitnc("file_input", "path_output_folder", "Types"[DAY,MONTH or YEAR], Suffix")
     '''
 
     if types == "DAY":

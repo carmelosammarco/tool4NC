@@ -93,16 +93,16 @@ For the list of fucntions avaiable a in "tool4nc" module please continue to read
 ## Functions included:
 
 
-### nctocsv ("path_input file", "path_output folder")
+### nctocsv ("input file", "path_output folder")
 
 This function converts a netCDF file to a csv file. It will generate two csv files called file.csv and file_cleaned.csv respectively. The file_cleaned.csv is cleaned by all the NAN values and it is considered the final output file of this function.
 
 
-### nctoshape ("path_input file", "path_output folder", "variable_name")
+### nctoshape ("input file", "path_output folder", "variable_name")
 
 This function converts a netCDF file into a shape file (Point features). Firstly, it will generate two csv files called file.csv and file_cleaned.csv respectively. After that, the file_cleaned.csv (purified by all the NAN values) is used to extract the corresponding shapefile representing a variable’s values which is the third argument of this function.
 
-### nctogdr ("path_input file", "path_output folder")
+### nctogdr ("input file", "path_output folder")
 
 This fuction convert a netCDF file to a GRD file which is required for some computations.
 
@@ -112,7 +112,7 @@ This fuction convert a netCDF file to a GRD file which is required for some comp
 This function is qble to concatenate segments of data coming from the same dataset but at different time steps. It will generate a file called "concatenated.nc" as final result. The only argument needed is the folder where the files are located.
 
 
-### splitnc ("path_input file",  "path_output folder", "type", "suffix")
+### splitnc ("input file",  "path_output folder", "type", "suffix")
 
 This function can split the data by type; DAY (DD), MONTH (YYYYMM) and YEAR (YYYY). It gives the option to add a suffix to the generated data. 
 
