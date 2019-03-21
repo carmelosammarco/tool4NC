@@ -38,7 +38,7 @@ def nctoshape(filein,out,variable):
 
         -USE:
 
-        nctoshape("path_file_input", "path_output_folder", "variable")
+        nctoshape("file_input", "path_output_folder", "variable")
         '''
     ds = xr.open_dataset(filein, decode_times=False)
     df = ds.to_dataframe()
