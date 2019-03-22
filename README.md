@@ -179,7 +179,7 @@ for filename in os.listdir(Input_DIR):
 ```
 from tool4nc import splitnc
 
-Input_file = 'the/path/of/your/input/file'
+Input_file = 'my_input_file.nc'
 Out_DIR = 'the/directory/you/want/to/output/the/results'
 type = "MONTH"
 suffix = "text/to/append/at/each/file"
