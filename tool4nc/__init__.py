@@ -24,6 +24,7 @@ def nctocsv(filein,out):
     df.to_csv(out + "/" + filein + ".csv")
     data = pd.read_csv(out + "/" + filein + ".csv")
     data.dropna().to_csv(out + "/" + filein + "_NANcleaned.csv", index = False)
+    
 #############################################################################
 
 
