@@ -21,11 +21,9 @@ def nctocsv(filein,out):
         '''
     ds = xr.open_dataset(filein, decode_times=False)
     df = ds.to_dataframe()
-    df.to_csv(out + "/data.csv")
+    df.to_csv(out + "/" + filein + ".csv")
     data = pd.read_csv(out + "/" + filein + ".csv")
     data.dropna().to_csv(out + "/" + filein + "_NANcleaned.csv", index = False)
-    #data = pd.read_csv(out + "/data.csv")
-    #data.dropna().to_csv(out + "/data_noNAN.csv", index = False)
 #############################################################################
 
 

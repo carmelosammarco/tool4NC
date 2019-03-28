@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf8") as fh:
     long_description = fh.read()
 
 setup(name='tool4nc',
-      version='0.2.9',
+      version='0.3.0',
       description='Python module for the netCDF files manipulations',
       long_description=long_description,
       long_description_content_type='text/markdown',
