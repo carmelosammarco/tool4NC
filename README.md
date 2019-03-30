@@ -3,7 +3,7 @@
 
 **Travis CI:**
 
-[![Build Status](https://travis-ci.com/carmelosammarco/tool4nc.png)](https://travis-ci.com/carmelosammarco/tool4nc)
+[![Build Status](https://travis-ci.com/carmelosammarco/tool4nc.png)](https://travis-ci.com/carmelosammarco/tool4nc) [![Join the chat at https://gitter.im/tool4nc/community](https://badges.gitter.im/tool4nc/community.svg)](https://gitter.im/tool4nc/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Python module containing functions for simplifing the netCDF files manipulations.
 
