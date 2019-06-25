@@ -1,3 +1,7 @@
+#####################################################################
+#Programm for Mercator Ocean by Carmelo Sammarco
+#####################################################################
+
 #<tool4nc - tool for manipulate the netcdf files.>
 #Copyright (C) <2018>  <Carmelo Sammarco>
 
