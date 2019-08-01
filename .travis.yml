@@ -14,7 +14,7 @@ before_install:
 # Install packages
 install:
   - python -m pip install --upgrade pip setuptools wheel 
-  - pip install tool4nc
+  - pip install tool4NC
 
 # Run test
 script:

@@ -3,8 +3,8 @@ from setuptools import setup, find_packages
 with open("README.md", "r", encoding="utf8") as fh:
     long_description = fh.read()
 
-setup(name='tool4nc',
-      version='0.3.3',
+setup(name='tool4NC',
+      version='0.0.1',
       description='Python module for the netCDF files manipulations',
       long_description=long_description,
       long_description_content_type='text/markdown',

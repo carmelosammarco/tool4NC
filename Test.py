@@ -1,7 +1,7 @@
 from tool4nc import * 
 import os
 
-os.system("pip list | grep tool4nc")
+os.system("pip list | grep tool4NC")
 
 
 

@@ -1,11 +1,11 @@
 
-# tool4nc
+# tool4NC
 
 [![Build Status](https://travis-ci.com/carmelosammarco/tool4nc.png)](https://travis-ci.com/carmelosammarco/tool4nc) [![Build status](https://ci.appveyor.com/api/projects/status/58ppa5otfl06rd1h?svg=true)](https://ci.appveyor.com/project/carmelosammarco/tool4nc) [![PyPi](https://img.shields.io/badge/PyPi-Project-yellow.svg)](https://pypi.org/project/tool4nc/)  [![Gitter](https://badges.gitter.im/tool4nc/community.svg)](https://gitter.im/tool4nc/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 I developed this software while working as [AKKA](https://www.akka-technologies.com) consultant engeneer for the [CMEMS's Service Desk (Copernicus Marine Environment Monitoring Service)](http://marine.copernicus.eu). I was and I am inspired by the Mercator-Ocean's community (users, co-workers, web-forum discussions and many more) which gave me ideas and the motivational power to build this tool. It is the first python application of its kind created inside the CMEMS environment and I hope that with time it will became an ufficial CMEMS tool. The main goals that I wanted to adress were solving the most common user problems as the data-download requests and the netCDF file manipulations.
 
-**This project gave me also ideas to develop other tools** as [MerOC](https://github.com/carmelosammarco/MerOC), [MerOCenv](https://github.com/carmelosammarco/MerOCenv) and [ads4mo](https://github.com/carmelosammarco/ads4mo). To know more about them just visit the projects web pages which are hyperlinked above.
+**This project gave me also ideas to develop other tools** as [MerOC](https://github.com/carmelosammarco/MerOC), [MerocENV](https://github.com/carmelosammarco/MerocENV) and [ads4MO](https://github.com/carmelosammarco/ads4MO). To know more about them just visit the projects web pages which are hyperlinked above.
 
 I created also a **chat-community** powered by "Gitter" where is possible have an exchange of ideas,functionalities,bugs and many more. Just click ![Gitter](https://badges.gitter.im/tool4nc/community.svg) to acces the chat room.
 
@@ -56,7 +56,7 @@ python -m pip install --upgrade pip setuptools wheel
 After that run the software installation with:
 
 ```
-pip install tool4nc
+pip install tool4NC
 ```
 
 ## Installation for Windows users:
@@ -100,13 +100,13 @@ If gdal is correctly configured it will display its usage instructions.
 Now that the all the most nasty dependencies are installed (at least for Windows OS), you can execute:
 
 ```
-pip install tool4nc
+pip install tool4NC
 ```
 At this point, after the installation you are ready to import the tool4nc module as:
 
 ```
-from tool4nc import *              --->  #Import all the fuctions
-from tool4nc import [name_fuction] --->  #Import just one fuction 
+from tool4NC import *              --->  #Import all the fuctions
+from tool4NC import [name_fuction] --->  #Import just one fuction 
 ```
 For the list of fucntions avaiable a in "tool4nc" module please continue to read below.
 
@@ -143,7 +143,7 @@ This function can split the data by type; DAY (DD), MONTH (YYYYMM) and YEAR (YYY
 
 ```
 import os
-from tool4nc import nctocsv
+from tool4NC import nctocsv
 
 Input_DIR = 'the/directory/you/want/to/use'
 Out_DIR = 'the/directory/you/want/to/use'
@@ -157,7 +157,7 @@ for filename in os.listdir(Input_DIR):
 
 ```
 import os
-from tool4nc import nctoshape
+from tool4NC import nctoshape
 
 Input_DIR = 'the/directory/you/want/to/use'
 Out_DIR = 'the/directory/you/want/to/use'
@@ -171,7 +171,7 @@ for filename in os.listdir(Input_DIR):
 ## I have a folder with a month of data divided in daily files. These files are downloaded from the same dataset and I would like to concatenate all the daily files in a montly one:
 
 ```
-from tool4nc import concatnc
+from tool4NC import concatnc
 
 Input_DIR = 'the/directory/where/you/store/the/daily/file'
 
@@ -182,7 +182,7 @@ concatnc (Input_DIR) #it will generate the concatenated.nc file
 
 ```
 import os
-from tool4nc import nctogrd
+from tool4NC import nctogrd
 
 Input_DIR = 'the/directory/you/want/to/use'
 Out_DIR = 'the/directory/you/want/to/use'
@@ -195,7 +195,7 @@ for filename in os.listdir(Input_DIR):
 ## I have one year file but i realised that it is better have the data organised by Month. Furthermore, I would like also add a suffix to each file:
 
 ```
-from tool4nc import splitnc
+from tool4NC import splitnc
 
 Input_file = 'my_input_file.nc'
 Out_DIR = 'the/directory/you/want/to/output/the/results'
