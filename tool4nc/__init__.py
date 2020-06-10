@@ -1,5 +1,5 @@
 #####################################################################
-#Programm for Mercator Ocean by Carmelo Sammarco
+#Programm author: Carmelo Sammarco
 #####################################################################
 
 #<tool4nc - tool for manipulate the netcdf files.>
