@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.com/carmelosammarco/tool4nc.png)](https://travis-ci.com/carmelosammarco/tool4nc) [![Build status](https://ci.appveyor.com/api/projects/status/58ppa5otfl06rd1h?svg=true)](https://ci.appveyor.com/project/carmelosammarco/tool4nc) [![PyPi](https://img.shields.io/badge/PyPi-Project-yellow.svg)](https://pypi.org/project/tool4nc/)  [![Gitter](https://badges.gitter.im/tool4nc/community.svg)](https://gitter.im/tool4nc/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-I developed this software while working as [AKKA](https://www.akka-technologies.com) consultant engeneer for the [CMEMS's Service Desk (Copernicus Marine Environment Monitoring Service)](http://marine.copernicus.eu). I was and I am inspired by the Mercator-Ocean's community (users, co-workers, web-forum discussions and many more) which gave me ideas and the motivational power to build this tool. It is the first python application of its kind created inside the CMEMS environment and I hope that with time it will became an ufficial CMEMS tool. The main goals that I wanted to adress were solving the most common user problems as the data-download requests and the netCDF file manipulations.
+**I developed this software because motivated to improve my efficiency and productivity. It is just an attemp/idea/prototype and it is not fully optimased or considered stable.**
 
 **This project gave me also ideas to develop other tools** as [MerOC](https://github.com/carmelosammarco/MerOC), [MerocENV](https://github.com/carmelosammarco/MerocENV) and [ads4MO](https://github.com/carmelosammarco/ads4MO). To know more about them just visit the projects web pages which are hyperlinked above.
 
