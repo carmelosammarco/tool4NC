@@ -5,7 +5,7 @@
 
 **I developed this software because motivated to improve my efficiency and productivity. It is just an attemp/idea/prototype and it is not fully optimased or considered stable.**
 
-**This project gave me also ideas to develop other tools** as [MerOC](https://github.com/carmelosammarco/MerOC), [MerocENV](https://github.com/carmelosammarco/MerocENV) and [ads4MO](https://github.com/carmelosammarco/ads4MO). To know more about them just visit the projects web pages which are hyperlinked above.
+**This project gave me also ideas to develop other tools** as [MerOC](https://github.com/carmelosammarco/MerOC), [JupLab4NetCDF](https://github.com/carmelosammarco/JupLab4NetCDF) and [ads4MO](https://github.com/carmelosammarco/ads4MO). To know more about them just visit the projects web pages which are hyperlinked above.
 
 I created also a **chat-community** powered by "Gitter" where is possible have an exchange of ideas,functionalities,bugs and many more. Just click ![Gitter](https://badges.gitter.im/tool4nc/community.svg) to acces the chat room.
 
