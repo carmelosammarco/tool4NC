@@ -1,7 +1,7 @@
 
 # tool4NC
 
-[![Build Status](https://travis-ci.com/carmelosammarco/tool4nc.png)](https://travis-ci.com/carmelosammarco/tool4nc) [![Build status](https://ci.appveyor.com/api/projects/status/58ppa5otfl06rd1h?svg=true)](https://ci.appveyor.com/project/carmelosammarco/tool4nc) [![PyPi](https://img.shields.io/badge/PyPi-Project-yellow.svg)](https://pypi.org/project/tool4nc/)  [![Gitter](https://badges.gitter.im/tool4nc/community.svg)](https://gitter.im/tool4nc/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Build Status](https://travis-ci.com/carmelosammarco/tool4nc.png)](https://travis-ci.com/carmelosammarco/tool4nc) [![Build status](https://ci.appveyor.com/api/projects/status/58ppa5otfl06rd1h?svg=true)](https://ci.appveyor.com/project/carmelosammarco/tool4nc) [![PyPi](https://img.shields.io/badge/PyPi-Project-yellow.svg)](https://pypi.org/project/tool4nc/)  
 
 **I developed this software because motivated to improve my efficiency and productivity. It is just an attemp/idea/prototype and it is not fully optimased or considered stable.**
 
